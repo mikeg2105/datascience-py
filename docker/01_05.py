@@ -19,7 +19,7 @@ from pandas import Series, DataFrame
 # In[26]:
 
 
-address = 'mtcars.csv'
+address = '~/scripts/mtcars.csv'
 cars = pd.read_csv(address)
 
 cars.columns = ['car_names','mpg','cyl','disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am', 'gear', 'carb']
@@ -35,4 +35,6 @@ cars.head()
 # in the column Series you want the DataFrame to be grouped by.
 cars_groups = cars.groupby(cars['cyl'])
 cars_groups.mean()
+
+print(cars_groups.mean())
 
