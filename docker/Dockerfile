@@ -44,6 +44,7 @@ WORKDIR /home/jupyter
 RUN git clone https://github.com/mikeg2105/datascience-py
 
 RUN ["mkdir", "scripts"]
+RUN ["mkdir", "data"]
 COPY *.py scripts 
 COPY *.csv scripts
 
@@ -56,4 +57,8 @@ CMD ["python3"]
 #docker container run --rm -it mikeg64/python-datascience:3.0 /bin/sh
 #docker container run -p 8888:8888 --rm -it mikeg64/python-datascience:3.0 python3 scripts/01_05.py >& out.csv
 
+
+#start the docker container but mount a folder ~/proj/pyiome/python (for example) so that it can be accessed from /home/jupyter/data
+#in the container
+#docker container run -p 8888:8888 -v ~/proj/pyiome/python:/home/jupyter/data --rm -it mikeg64/python-datascience:3.0 sh
 
